@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prescription Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash-msg">{{ messages[0] }}</div>
+      {% endif %}
+    {% endwith %}
+
+    <div class="form-container" id="form-to-print">
+    <center><U><h1>SHREE CLINIC</h1></U>
+        <h2>Prescription Form</h2></center>
+        <form method="POST" action="/submit">
+            <input type="text" name="name" placeholder="Patient Name" required>
+            <input type="text" name="age" placeholder="Age" required>
+            <select name="sex" required>
+                <option disabled selected value="">Select Sex</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+            <input type="text" name="weight" placeholder="Weight">
+            <input type="tel" name="mobile" placeholder="Mobile Number" pattern="[0-9]{10}" maxlength="10">
+
+            <div class="radio-group">
+                <span>Case Type:</span>
+                <label><input type="radio" name="case" value="Old" required> Old</label>
+                <label><input type="radio" name="case" value="New"> New</label>
+            </div>
+
+            <input type="text" name="diagnosis" placeholder="Diagnosis" required>
+            <textarea name="prescription" placeholder="Prescription" required></textarea>
+
+            <div class="radio-group">
+                <span>OPD:</span>
+                <label><input type="radio" name="opd" value="GEN" required> GEN</label>
+                <label><input type="radio" name="opd" value="PED"> PED</label>
+                <label><input type="radio" name="opd" value="SKIN"> SKIN</label>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+            <button type="button" class="print-btn" onclick="window.print()">Print</button>
+        </form>
+    </div>
+</body>
+</html>

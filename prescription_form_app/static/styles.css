@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: url('/static/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    color: #000;
+}
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: white;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: normal;
+    color: #666;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px 16px;
+    padding-right: 30px;
+}
+input, select, textarea, button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.radio-group span {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+button {
+    font-weight: bold;
+    cursor: pointer;
+    background-color: rgba(45, 194, 231, 0.8);
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    border: 1px solid #333;
+}
+
+/* Flash message */
+.flash-msg {
+    text-align: center;
+    background: #dff0d8;
+    color: #1cdbe5;
+    padding: 10px;
+    font-weight: bold;
+    margin: 10px auto;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+/* Responsive improvements */
+@media (max-width: 600px) {
+    .form-container {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    input, select, textarea, button {
+        font-size: 14px;
+    }
+}
+
+/* Print-specific styles */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #form-to-print, #form-to-print * {
+        visibility: visible;
+    }
+
+    #form-to-print {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: white;
+        box-shadow: none;
+    }
+
+    button {
+        display: none !important;
+    }
+
+    @page {
+        size: A4;
+        margin: 20mm;
+    }
+}
