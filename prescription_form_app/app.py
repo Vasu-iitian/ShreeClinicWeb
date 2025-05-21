@@ -5,7 +5,7 @@ from datetime import datetime
 
 # Google Sheets setup
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name("clinic-460409-7162fa84254e.json", scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name("clinic-460409-684a39397575.json", scope)
 client = gspread.authorize(creds)
 sheet = client.open("PrescriptionData").sheet1  # Make sure this spreadsheet exists and is shared
 
